@@ -107,7 +107,7 @@ d3.tsv("qol.tsv", type, function(error, data) {
       .attr("fill", "black")
       .attr("x", function(d) { return x(d.year)+x.rangeBand()/2;})
       .attr("y", function(d) { return y(d.frequency)+20; })
-      .text(function(d){  return d.frequency ;})
+      .text(function(d){  return d3.round(d.frequency * 100)+"%" ;})
       ;
       
 
@@ -137,7 +137,7 @@ d3.tsv(datasource, type, function(error, data) {
       
   svg.selectAll("text")
       .data(data)
-    .enter().append("text")
+      .transition()
       .attr("class", "barlabel")
       .attr("text-anchor", "middle")
       .attr("fill", "black")
