@@ -91,7 +91,7 @@ d3.tsv("data.tsv", type, function(error, data) {
       .attr("y", function(d) { return y(d.frequency); })
       .attr("height", function(d) { return height - y(d.frequency); });
   
-  bar.append("text")
+  g.append("text")
       .attr("x", function(d) { return x(d.year); })
       .attr("y", function(d) { return y(d.frequency) - 20; })
       .attr("dy", ".35em")
