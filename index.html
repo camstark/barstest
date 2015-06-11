@@ -94,7 +94,19 @@ d3.tsv("qol.tsv", type, function(error, data) {
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.frequency); })
       .attr("height", function(d) { return height - y(d.frequency); });
-  
+      
+  svg.selectAll(".barlabel")
+      .data(data)
+    .enter().append("text")
+      .attr("class", "barlabel")
+      .attr("text-anchor", "middle")
+      .attr("fill", "black")
+      .attr("x", function(d) { return x(d.year); })
+      .attr("y", function(d) { return y(d.frequency); })
+      .text(function(d){  return d.frequency ;})
+      ;
+      
+
 });
 function type(d) {
   d.frequency = +d.frequency;
