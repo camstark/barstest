@@ -19,6 +19,10 @@
 .x.axis path {
   display: none;
 }
+.barlabel {
+  fill: black;
+  font: 12px sans-serif;
+}
 </style>
 <body>
 
@@ -130,6 +134,17 @@ d3.tsv(datasource, type, function(error, data) {
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.frequency); })
       .attr("height", function(d) { return height - y(d.frequency); });
+      
+  svg.selectAll("text")
+      .data(data)
+    .enter().append("text")
+      .attr("class", "barlabel")
+      .attr("text-anchor", "middle")
+      .attr("fill", "black")
+      .attr("x", function(d) { return x(d.year)+x.rangeBand()/2;})
+      .attr("y", function(d) { return y(d.frequency)+20; })
+      .text(function(d){  return d3.round(d.frequency * 100)+"%" ;})
+      ;
   
 });
 function type(d) {
