@@ -101,7 +101,7 @@ d3.tsv("qol.tsv", type, function(error, data) {
       .attr("class", "barlabel")
       .attr("text-anchor", "middle")
       .attr("fill", "black")
-      .attr("x", function(d) { return x(d.year); })
+      .attr("x", function(d,i) { return x(i)+x.rangeBand()/2;})
       .attr("y", function(d) { return y(d.frequency); })
       .text(function(d){  return d.frequency ;})
       ;
