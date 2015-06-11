@@ -82,7 +82,7 @@ d3.tsv("data.tsv", type, function(error, data) {
       .style("text-anchor", "end")
       .text("Percentage");
 
-  var bar = svg.selectAll(".bar")
+  svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
       .attr("class", "bar")
@@ -91,12 +91,6 @@ d3.tsv("data.tsv", type, function(error, data) {
       .attr("y", function(d) { return y(d.frequency); })
       .attr("height", function(d) { return height - y(d.frequency); });
   
-  g.append("text")
-      .attr("x", function(d) { return x(d.year); })
-      .attr("y", function(d) { return y(d.frequency) - 20; })
-      .attr("dy", ".35em")
-      .text(function(d) { return d.frequency; });
-
 });
 
 function type(d) {
