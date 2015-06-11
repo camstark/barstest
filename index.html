@@ -94,12 +94,12 @@ d3.tsv(datasource, type, function(error, data) {
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.year); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.value); })
-      .attr("height", function(d) { return height - y(d.value); });
+      .attr("y", function(d) { return y(d.frequency); })
+      .attr("height", function(d) { return height - y(d.frequency); });
   
 });
 function type(d) {
-  d.value = +d.value;
+  d.frequency = +d.frequency;
   return d;
 }
 
