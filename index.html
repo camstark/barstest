@@ -107,6 +107,8 @@ function bars(datasource) {
 	
 d3.tsv(datasource, type, function(error, data) {
   
+  console.log(datasource);
+  
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
