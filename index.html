@@ -102,7 +102,7 @@ d3.tsv("qol.tsv", type, function(error, data) {
       .attr("text-anchor", "middle")
       .attr("fill", "black")
       .attr("x", function(d) { return x(d.year)+x.rangeBand()/2;})
-      .attr("y", function(d) { return y(d.frequency); })
+      .attr("y", function(d) { return y(d.frequency)+20; })
       .text(function(d){  return d.frequency ;})
       ;
       
